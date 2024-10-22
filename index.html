@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peddy - Pet Adoption Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/e9a68d0d37.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="lato-regular">
+    <header class="w-11/12 mx-auto">
+        <!-- Navbar section design -->
+        <nav>
+            <div class="navbar bg-base-100">
+                <div class="navbar-start">
+                    <a class="btn btn-ghost text-xl">
+                        <div class="flex justify-center items-center gap-3">
+                            <img src="./images/logo.webp" alt="">
+                            <p class="font-bold text-3xl">Peddy</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                    <ul class="menu menu-horizontal px-1">
+                        <li><a>Home</a></li>
+                        <li><a>Shop</a></li>
+                        <li><a>Contact</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-end">
+                    <span class="shadow-md bg-base-100 border rounded-full p-4"><i
+                            class="fa-regular fa-user"></i></span>
+                    <div class="dropdown">
+                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden"><i class="fa-solid fa-bars"></i>
+                        </div>
+                        <ul tabindex="0"
+                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow right-0">
+                            <li><a>Home</a></li>
+                            <li><a>Shop</a></li>
+                            <li><a>Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Your Path to Adoption Starts Here -->
+        <section>
+            <div class="text-center space-y-4">
+                <p class="font-bold text-xl text-red-400">Bringing Families Together❤️‍🔥</p>
+                <h2 class="text-6xl font-bold">Your Path to Adoption <br> Starts Here</h2>
+                <p class="text-xs text-gray-600">Adopting a child is a beautiful journey that involves several key
+                    steps. From the initial decision to adopt, to preparing your home, completing <br> the necessary
+                    paperwork, and finally welcoming your new family member, each phase is important.</p>
+                <button onclick="viewMore()" class="btn bg-[#0E7A81] text-white">View More</button>
+            </div>
+            <div class="flex justify-center">
+                <img src="./images/pet.webp" alt="">
+            </div>
+        </section>
+    </header>
+    <main class="w-11/12 mx-auto">
+        <!-- Adopt  Your  Best Friend -->
+        <section id="adopt-section">
+            <div class="text-center space-y-4">
+                <h3 class="font-bold text-4xl">Adopt Your Best Friend</h3>
+                <p class="text-xs text-gray-600">Adopting a pet can be one of the most rewarding experiences of your
+                    life. From dogs and cats to other
+                    small animals, you can find a perfect match waiting for you.</p>
+            </div>
+            <!--Button category -->
+            <div id="button-category" class="flex sm:flex-row justify-center items-center gap-4  mt-10">
+
+            </div>
+        </section>
+        <!-- Best Deal For you -->
+        <section class="mt-10">
+            <div class="flex justify-between items-center">
+                <h4 class="font-bold text-2xl">Best Deal For you</h4>
+                <button onclick="loadAllPrice()" class="btn bg-[#0E7A81] text-white">Sort By Price</button>
+            </div>
+            <!-- here showed our spinner -->
+            <div><span id="spinner" class="loading loading-bars loading-lg hidden mx-auto"></span></div>
+            <!-- All pets show -->
+            <div class="mt-9">
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-5">
+                    <!-- pet card show -->
+                    <div class="col-span-3">
+                        <div id="all-pets" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+
+                        </div>
+                    </div>
+                    <!-- Like Button click pets add right side -->
+                    <div class="col-span-1">
+                        <div id="like-buttonClick"
+                            class="grid grid-cols-2 gap-3 p-4 border border-slate-400 rounded-md mb-10 hidden">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Show Modal -->
+        <section>
+            <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+                <div id="modal-container" class="modal-box">
+
+                </div>
+            </dialog>
+        </section>
+        <!-- Adopt button click then show modal -->
+        <section class="flex justify-center items-center">
+            <dialog id="my_modal_1" class="modal">
+                <div class="modal-box flex justify-center items-center flex-col">
+                    <img class="w-16 h-16" src="https://img.icons8.com/?size=48&id=12208&format=png" alt="">
+                    <h3 class="text-5xl font-bold">Congrats!</h3>
+                    <p class="py-4">Adopting Process is start for your pet</p>
+                    <p id="countdown" class="text-6xl font-semibold">3</p>
+                </div>
+            </dialog>
+        </section>
+    </main>
+    <!-- Footer part design -->
+    <footer class="footer bg-[#131313] text-base-content p-10 md:flex md:justify-around">
+        <nav>
+            <h6 class="footer-title text-white">
+                <div class="flex justify-center items-center gap-3">
+                    <img src="./images/logo.webp" alt="">
+                    <p class="font-bold text-3xl">Peddy</p>
+                </div>
+            </h6>
+            <a class="link link-hover text-yellow-50">Location: av. Washington 165, NY CA </a>
+            <a class="link link-hover text-yellow-50">54003</a>
+            <a class="link link-hover text-yellow-50">Phone: +31 85 964 47 25</a>
+            <a class="link link-hover text-yellow-50">Openings hours: 9.00 AM - 5.00 PM</a>
+            <div class="flex gap-2 text-xl">
+                <p><i class="fa-brands fa-facebook text-blue-400"></i></p>
+                <p><i class="fa-brands fa-x-twitter text-white"></i></p>
+                <p><i class="fa-brands fa-youtube text-red-600"></i></p>
+                <p><i class="fa-brands fa-instagram text-red-500"></i></p>
+            </div>
+        </nav>
+        <nav>
+            <h6 class="footer-title text-white">Useful Links</h6>
+            <a class="link link-hover text-yellow-50">Home</a>
+            <a class="link link-hover text-yellow-50">About Us</a>
+            <a class="link link-hover text-yellow-50">Animals</a>
+            <a class="link link-hover text-yellow-50">Foundation</a>
+            <a class="link link-hover text-yellow-50">Contact</a>
+        </nav>
+        <form>
+            <h6 class="footer-title text-white">Drop a Message</h6>
+            <fieldset class="form-control w-80">
+                <div class="join">
+                    <input type="text" placeholder="Enter your email"
+                        class="input input-bordered rounded-md sm:w-full" />
+                </div>
+            </fieldset>
+            <button class="btn bg-[#0E7A81] text-white sm:w-full">Subscribe</button>
+        </form>
+    </footer>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
